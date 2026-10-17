@@ -8,46 +8,81 @@
   </head>
   <body>
     <div class="wrap">
-      <header>
-        <h1>Group 3 IoT Dashboard</h1>
+      <header class="main_header">
+        <div class="main_header_text">
+          <h1>Galler.IO</h1>
+          <h3>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </h3>
+        </div>
+        <div class="main_header_img"></div>
+      </header>
+      <header class="sub_header">
+        <h1></h1>
         <div class="status">
           <span class="dot" id="dot"></span>
           <span id="statusText">Connecting...</span>
         </div>
       </header>
 
+      <div class="flex_container">
+        <div class="readings_container1" id="cardDist">
+          <img src="images/art.png" alt="" />
+          <div>
+            <div class="label">Distance</div>
+            <div>
+              <span class="value" id="dist">--</span
+              ><span class="unit" id="distUnit">cm</span>
+            </div>
+          </div>
+        </div>
+        <div class="readings_container2">
+          <div class="card" id="cardTemp">
+            <div class="temperature-icon"></div>
+            <div>
+              <div class="label">Temperature</div>
+              <div>
+                <span class="value" id="temp">--</span
+                ><span class="unit">°C</span>
+              </div>
+            </div>
+          </div>
+          <div class="card" id="cardHum">
+            <div class="humidity-icon"></div>
+            <div>
+              <div class="label">Humidity</div>
+              <div>
+                <span class="value" id="hum">--</span
+                ><span class="unit">%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" id="cardWater">
+            <div class="water-icon"></div>
+            <div>
+              <div class="label">Water Sensor</div>
+              <div><span class="value" id="water">--</span></div>
+            </div>
+          </div>
+
+          <div class="card" id="cardLight">
+            <div class="light-icon"></div>
+            <div>
+              <div class="label">Light Sensor</div>
+              <div><span class="value" id="light">--</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="alarm clear" id="alarmBox">
         <span id="alarmText">Waiting for data...</span>
-      </div>
-
-      <div class="grid">
-        <div class="card" id="cardTemp">
-          <div class="label">Temperature</div>
-          <div>
-            <span class="value" id="temp">--</span><span class="unit">°C</span>
-          </div>
-        </div>
-        <div class="card" id="cardHum">
-          <div class="label">Humidity</div>
-          <div>
-            <span class="value" id="hum">--</span><span class="unit">%</span>
-          </div>
-        </div>
-        <div class="card" id="cardDist">
-          <div class="label">Distance</div>
-          <div>
-            <span class="value" id="dist">--</span
-            ><span class="unit" id="distUnit">cm</span>
-          </div>
-        </div>
-        <div class="card" id="cardWater">
-          <div class="label">Water Sensor</div>
-          <div><span class="value" id="water">--</span></div>
-        </div>
-        <div class="card" id="cardLight">
-          <div class="label">Light Sensor</div>
-          <div><span class="value" id="light">--</span></div>
-        </div>
       </div>
 
       <div class="footer" id="footer">Last update: --</div>
