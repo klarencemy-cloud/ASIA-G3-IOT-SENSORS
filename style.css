@@ -158,6 +158,7 @@ h1 {
   display: flex;
   flex: 1;
   flex-wrap: wrap;
+  gap: 14px;
 }
 
 .card {
@@ -213,15 +214,6 @@ h1 {
   gap: 10px;
 }
 
-#cardTemp,
-#cardHum {
-  margin-bottom: 14px;
-}
-
-#cardTemp,
-#cardWater {
-  margin-right: 14px;
-}
 #cardHum,
 #cardLight {
   width: 210px;
