@@ -157,7 +157,6 @@ h1 {
 .readings_container2 {
   display: flex;
   flex: 1;
-  gap: 14px;
   flex-wrap: wrap;
 }
 
@@ -212,6 +211,20 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+
+#cardTemp,
+#cardHum {
+  margin-bottom: 14px;
+}
+
+#cardTemp,
+#cardWater {
+  margin-right: 14px;
+}
+#cardHum,
+#cardLight {
+  width: 210px;
 }
 
 .temperature-icon {
