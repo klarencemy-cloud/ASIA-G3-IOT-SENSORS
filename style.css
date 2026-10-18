@@ -149,7 +149,7 @@ h1 {
   width: 300px;
 }
 
-.readings_container1 img {
+#cardDist > img {
   transform: translate(0, -50px);
   width: 300px;
 }
@@ -222,31 +222,23 @@ h1 {
 .temperature-icon {
   height: 30px;
   width: 30px;
-  background-image: url("images/icons/temperature.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+  object-fit: contain;
 }
 
 .humidity-icon {
   height: 30px;
   width: 30px;
-  background-image: url("images/icons/humidity.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+  object-fit: contain;
 }
 
 .water-icon {
   height: 30px;
   width: 30px;
-  background-image: url("images/icons/water.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+  object-fit: contain;
 }
 
 .light-icon {
   height: 30px;
   width: 30px;
-  background-image: url("images/icons/light.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+  object-fit: contain;
 }
