@@ -12,7 +12,9 @@ const db = getDatabase(app);
 
 const $ = (id) => document.getElementById(id);
 const OFFLINE_AFTER_MS = 15000; // no new data for 15s = device offline
+const startedAt = Date.now();
 let lastUpdate = 0;
+let initialSnapshotReceived = false;
 
 const alarmMessages = {
   WATER: "ALARM: Water detected",
@@ -26,10 +28,26 @@ function fmt(v, digits = 1) {
   return v === null || v === undefined ? "--" : Number(v).toFixed(digits);
 }
 
+function clearSensorReadings() {
+  ["temp", "hum", "dist", "water", "light"].forEach((id) => {
+    $(id).textContent = "--";
+  });
+  $("distUnit").textContent = "";
+  ["cardTemp", "cardDist", "cardWater", "cardLight"].forEach((id) => {
+    $(id).classList.remove("alert");
+  });
+  $("alarmText").textContent = "No sensor data";
+  $("alarmBox").className = "alarm clear";
+  $("footer").textContent = "Last update: --";
+}
+
 onValue(ref(db, "sensors"), (snapshot) => {
   const d = snapshot.val();
+  if (!initialSnapshotReceived) {
+    initialSnapshotReceived = true;
+    return;
+  }
   if (!d) return;
-
   lastUpdate = Date.now();
 
   // Numbers
@@ -70,12 +88,19 @@ setInterval(() => {
   const text = $("statusText");
 
   if (!lastUpdate) {
+    clearSensorReadings();
     dot.className = "dot";
-    text.textContent = "Waiting for device...";
+    if (initialSnapshotReceived && Date.now() - startedAt > OFFLINE_AFTER_MS) {
+      dot.className = "dot offline";
+      text.textContent = "Device offline";
+    } else {
+      text.textContent = "Waiting for device...";
+    }
     return;
   }
 
   if (Date.now() - lastUpdate > OFFLINE_AFTER_MS) {
+    clearSensorReadings();
     dot.className = "dot offline";
     text.textContent = "Device offline";
   } else {
